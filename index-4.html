@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<style>
+#div1 {
+  font-size:48px;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+ <h1 style="color:white">Battery Charge tracker</h1>
+   <div class="container">
+    <button id="btn-charge" onclick="charge()"></button><br/>
+   
+    <div id="div1" class="fa" ></div>
+    <i class="fa fa-bolt" id="thunder"></i><br/>
+   
+   </div>
+   
+   
+<script>
+    var timeCount=0
+    var status=document.getElementsByClassName('status').innerHTML
+    status="Oops! No Battery"
+   
+    var a;
+    var btn='Charge It'
+        a = document.getElementById("div1");
+        a.innerHTML = "&#xf244;";
+        a.style.color='black'
+        a.style.fontSize='180px'
+        a.style.marginLeft='38%'
+        var text=document.getElementById('btn-charge')
+    text.innerHTML=btn
+    function charge(){
+      if(btn==='Charge It'){
+        function chargebattery() {
+          var text=document.getElementById('btn-charge')
+            text.innerHTML="Charging"
+            console.log(text.innerHTML)
+            
+          }
+          chargebattery();
+          var stop=setInterval(function(){
+            timeCount+=1
+            if(timeCount===5){
+              
+              status="Charging"
+              text.innerHTML="Charged"
+              clearInterval(stop)
+            }else{
+              status="Charging"
+              chargeIcon=document.getElementById('thunder')
+              chargeIcon.style.visibility='visible'
+
+              setTimeout(function () {
+                
+                a.innerHTML = "&#xf243;";
+              }, 500);
+            setTimeout(function () {
+              
+                a.innerHTML = "&#xf242;";
+              
+              }, 1000);
+            setTimeout(function () {
+             
+                a.innerHTML = "&#xf241;";
+              }, 1500);
+            setTimeout(function () {
+             
+              
+                a.innerHTML = "&#xf240;";
+                
+              }, 2000);
+            }
+          }, 2000);
+      }
+
+    }
+    
+     
+      function decrease(){
+        alert('reduce')
+      }
+</script>
+
+
+</body>
+</html>
